@@ -23,7 +23,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      // component: () => import('../views/home.vue'), 
+      // component: () => import('../views/home.vue'),
     },
     {
       path: '/about',
@@ -59,12 +59,11 @@ const router = createRouter({
       path: '/todoWeekFifth',
       name: 'todoWeekFifth',
       component: () => import('../views/FifthView.vue'),
-    }
-
+    },
   ],
 })
 
-//陣列的語法 
+//陣列的語法
 
 // const routes = [
 //   { path: '/', name: 'home', component: HomeView },
@@ -79,6 +78,5 @@ const router = createRouter({
 //   history: createWebHashHistory(),
 //   routes
 // })
-
 
 export default router

@@ -160,69 +160,66 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from "vue";
+import { onMounted, ref } from 'vue'
 //import axios from "axios";
-import axios from "https://esm.sh/axios";
-const api = "https://todolist-api.hexschool.io/";
+import axios from 'https://esm.sh/axios'
+const api = 'https://todolist-api.hexschool.io/'
 const signupField = ref({
-  email: "",
-  password: "",
-  nickname: ""
-});
-const signupRes = ref("");
+  email: '',
+  password: '',
+  nickname: '',
+})
+const signupRes = ref('')
 const signup = async () => {
   try {
-    const res = await axios.post(`${api}users/sign_up`, signupField.value);
-    console.log(res);
-    signupRes.value = res.data.uid;
+    const res = await axios.post(`${api}users/sign_up`, signupField.value)
+    console.log(res)
+    signupRes.value = res.data.uid
   } catch (error) {
-    console.log("註冊錯誤!");
-    console.log(error);
+    console.log('註冊錯誤!')
+    console.log(error)
   }
-};
+}
 
 const signInField = ref({
-  email: "",
-  password: ""
-});
-const signInRes = ref("");
+  email: '',
+  password: '',
+})
+const signInRes = ref('')
 const signIn = async () => {
   try {
-    const res = await axios.post(`${api}users/sign_in`, signInField.value);
-    console.log(res);
-    signInRes.value = res.data.token;
-    document.cookie = `customTodoToken=${res.data.token};path=/`;
+    const res = await axios.post(`${api}users/sign_in`, signInField.value)
+    console.log(res)
+    signInRes.value = res.data.token
+    document.cookie = `customTodoToken=${res.data.token};path=/`
   } catch (error) {
-    console.log("登入錯誤!");
-    console.log(error);
+    console.log('登入錯誤!')
+    console.log(error)
   }
-};
+}
 
 // 驗證
 
 const user = ref({
-  nickname: "",
-  uid: ""
-});
+  nickname: '',
+  uid: '',
+})
 
 onMounted(async () => {
-  // 驗證登入 
-  const token = document.cookie.replace(
-    /(?:^|.*;\s*)customTodoToken\s*=\s*([^;]*).*$/i,
-    "$1"
-  );
+  // 驗證登入
+  const token = document.cookie.replace(/(?:^|.*;\s*)customTodoToken\s*=\s*([^;]*).*$/i, '$1')
   const res = await axios.get(`${api}users/checkout`, {
     headers: {
-      Authorization: token
-    }
-  });
-  console.log(res);
-  user.value = res.data;
-});
+      Authorization: token,
+    },
+  })
+  console.log(res)
+  user.value = res.data
+})
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap');
 html,
 body,
 div,
@@ -345,7 +342,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: "";
+  content: '';
   content: none;
 }
 
@@ -377,7 +374,7 @@ html {
 }
 
 body {
-  font-family: "Noto Sans TC";
+  font-family: 'Noto Sans TC';
   margin: 0 auto;
   overflow: hidden;
 }
@@ -430,7 +427,7 @@ img {
 
 @media (max-width: 576px) {
   .side {
-  width: 100%;
+    width: 100%;
   }
 }
 
